@@ -1,20 +1,5 @@
-```bash
-# get all ads
-curl http://localhost:3001/
+# Node.js and Express Tutorial: Building and Securing RESTful APIs
 
-# delete an ad
-ID=123
-curl -X DELETE http://localhost:3001/$ID
+In this article, you will learn how to develop RESTful APIs with Node.js, Express, and Auth0. You will start from scratch, scaffolding a new Node.js project, then you will go through all the steps needed to build a secure API.
 
-# insert a new ad
-curl -X POST -H 'Content-Type: application/json' -d '{
-  "title": "Pizza",
-  "price": 10.5
-}' http://localhost:3001/
-
-# update an ad
-ID=123
-curl -X PUT -H 'Content-Type: application/json' -d '{
-  "price": 12.5
-}' http://localhost:3001/$ID
-```
+Read more at: https://auth0.com/blog/node-js-and-express-tutorial-building-and-securing-restful-apis/
