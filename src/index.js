@@ -10,7 +10,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const {startDatabase} = require('./database/mongo');
-const vacationsAPI = require('./vacationsAPI');
+const vacationsAPI = require('./apis/vacationsAPI');
+const invoicesAPI = require('./apis/invoicesAPI');
+const expensesAPI = require('./apis/expensesAPI');
 
 // defining the Express app
 const app = express();
@@ -28,6 +30,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.use('/vacations', vacationsAPI);
+app.use('/invoices', invoicesAPI);
+app.use('/expenses', expensesAPI);
 
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
