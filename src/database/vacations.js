@@ -1,42 +1,42 @@
 const {getDatabase} = require('./mongo');
 const {ObjectID} = require('mongodb');
 
-const collectionName = 'ads';
+const collectionName = 'vacation';
 
-async function insertAd(ad) {
+async function insertVacation(vacation) {
   const database = await getDatabase();
-  const {insertedId} = await database.collection(collectionName).insertOne(ad);
+  const {insertedId} = await database.collection(collectionName).insertOne(vacation);
   return insertedId;
 }
 
-async function getAds() {
+async function getVacations() {
   const database = await getDatabase();
   return await database.collection(collectionName).find({}).toArray();
 }
 
-async function deleteAd(id) {
+async function deleteVacation(id) {
   const database = await getDatabase();
   await database.collection(collectionName).deleteOne({
     _id: new ObjectID(id),
   });
 }
 
-async function updateAd(id, ad) {
+async function updateVacation(id, vacation) {
   const database = await getDatabase();
-  delete ad._id;
+  delete vacation._id;
   await database.collection(collectionName).update(
     { _id: new ObjectID(id), },
     {
       $set: {
-        ...ad,
+        ...vacation,
       },
     },
   );
 }
 
 module.exports = {
-  insertAd,
-  getAds,
-  deleteAd,
-  updateAd,
+  insertVacation,
+  getVacations,
+  deleteVacation,
+  updateVacation,
 };
