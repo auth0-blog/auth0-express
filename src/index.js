@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const {startDatabase} = require('./database/mongo');
 const {insertAd, getAds} = require('./database/ads');
 const {deleteAd, updateAd} = require('./database/ads');
-const jwt = require('express-jwt');
+const { expressjwt: jwt } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 
 // defining the Express app
